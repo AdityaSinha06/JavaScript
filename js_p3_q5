@@ -1,0 +1,5 @@
+let str = prompt();
+console.log(str);
+
+let newStr = str.trim();
+console.log(newStr);
