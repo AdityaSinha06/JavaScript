@@ -1,0 +1,7 @@
+let ch = prompt();
+
+if(ch === ch.toLowerCase()) {
+    console.log("Yes , it is");
+} else {
+    console.log("No , its not");
+}
