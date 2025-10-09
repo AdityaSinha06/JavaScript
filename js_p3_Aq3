@@ -1,0 +1,7 @@
+let str = prompt();
+
+if(str.length == 0) {
+    console.log("Yes , its blank");
+} else {
+    console.log("No, its not.");
+}
