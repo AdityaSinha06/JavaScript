@@ -1,0 +1,8 @@
+let nums = [1,2,3,4,5,6,7,8,9];
+let n = prompt();
+
+if(n >= nums.length) {
+    console.log("It's just not possible.");
+} else {
+    console.log(nums.slice(0 , n));
+}
