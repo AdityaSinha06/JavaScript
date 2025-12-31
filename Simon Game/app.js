@@ -10,9 +10,17 @@ let score = 0;
 
 let h4 = document.querySelector('h4');
 
+const keyMap = {
+    q: "btn1",
+    w: "btn2",
+    a: "btn3",
+    s: "btn4"
+};
+
 //1. ------------press any key :- on document 
-document.addEventListener("keydown" , function () {
+document.addEventListener("keydown" , function (event) {
     if(started == false) {
+        // console.log(event.key)
         console.log("Game has started");
         started = true;
 
@@ -72,7 +80,7 @@ function matchResponse(idx) {
         }
     } else { // if the current made response is not same as current gameSeq :: you Lost;
         highScore = Math.max(highScore , score);
-        h4.innerHTML = `Game Over!! Your score was ${score}. <br>High-Score: ${highScore} <br> Press any key to start`;
+        h4.innerHTML = `Game Over!! Your score was ${score}. <br>High-Score: ${highScore} <br> Press Space key to start`;
         document.body.style.backgroundColor = "red";
         setTimeout(function () {
             document.body.style.backgroundColor = "white";
@@ -97,3 +105,16 @@ let allBtns = document.querySelectorAll("#btn");
 for (btn of allBtns) {
     btn.addEventListener("click" , btnPressed);
 }
+
+document.addEventListener("keydown" , function (event) {
+    let keyPressed = event.key.toLowerCase();
+
+    if(started) {
+        //game has started, then only listen to keyPresses
+        if(keyMap[keyPressed]) {
+            //select the mapped-btn 
+            let btn = document.querySelector(`.${keyMap[keyPressed]}`);
+            btnPressed.call(btn); //eventListener invoked function.
+        }
+    }
+})
