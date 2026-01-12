@@ -3,3 +3,5 @@ console.log(str);
 
 let newStr = str.trim();
 console.log(newStr);
+
+console.log("Hey, I am using Git")
